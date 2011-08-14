@@ -1,0 +1,15 @@
+# Application dependencies
+self: play -> plcrowd 0.3.0
+
+require:
+    - play 
+    - com.atlassian.crowd -> crowd-integration-client-rest 2.3.2
+
+repositories:
+    - atlassian-public:
+        type:       iBiblio
+        root:       "http://maven.atlassian.com/public"
+        contains:
+            - com.atlassian -> *
+            - com.atlassian.* -> *
+    

@@ -1,0 +1,33 @@
+== Prerequisites 
+
+* Play 1.2
+
+== Installation
+
+Add the following lines in your dependencies.yml to add plcrowd module to your project :
+
+bc. require:
+    - play 1.2
+    - ...
+    - org.tarpoon -> plcrowd 0.5.0
+# My repositories
+repositories:
+    - fdrouet:
+        type:       http
+        artifact:   "http://dl.dropbox.com/u/1769530/play/modules/[module]/[module]-[revision].zip"
+        contains:
+            - org.tarpoon -> *
+
+Add in your application.conf the location of your crowd.properties file :
+
+bc. ...
+plcrowd.crowd.properties=crowd.properties
+...
+
+== Content
+
+For the complete user guide, use the documentation embedded in your Play application (DEV mode only) : http://localhost:9000/@documentation/modules/plcrowd/home
+
+=== Changelog
+==== 0.5.0
+* (+) authenticate against a crowd server

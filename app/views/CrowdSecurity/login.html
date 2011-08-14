@@ -1,0 +1,25 @@
+#{extends 'main.html' /}
+#{set title:'Login' /}
+
+#{form @authenticate(login, password), method:'POST', id:'loginRequestForm', enctype:'multipart/form-data' }
+    <div style="width: 100%;">
+		#{field 'login'}
+		<p>
+			<label>${messages.get(field.name).capFirst()}</label>
+			<input type="text" id="${field.id}" name="${field.name}" value="${field.value}" class="${field.errorClass}" />
+			#{ifError field.name}<span class="error">${field.error}</span>#{/ifError}
+		</p>
+		#{/}
+		#{field 'password'}
+		<p>
+			<label>${messages.get(field.name).capFirst()}</label>
+			<input type="password" id="${field.id}" name="${field.name}" value="${field.value}" class="${field.errorClass}" />
+			#{ifError field.name}<span class="error">${field.error}</span>#{/ifError}
+		</p>
+		#{/}
+	</div>
+	<div style="width: 100%;">
+	    <input type="submit" value="Send request" />
+	    #{ifErrors}<p class="error">Some data are invalid. Please fix them.</p>#{/ifErrors}
+	</div>
+#{/form}
