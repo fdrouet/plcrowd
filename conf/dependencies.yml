@@ -1,5 +1,5 @@
 # Application dependencies
-self: play -> plcrowd 0.5.1
+self: play -> plcrowd 0.6.0
 
 require:
     - play 
