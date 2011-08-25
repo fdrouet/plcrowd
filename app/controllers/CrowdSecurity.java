@@ -10,6 +10,7 @@ import play.Logger;
 import play.mvc.Before;
 import play.mvc.Controller;
 import utils.CrowdUtils;
+import utils.HtmlUtils;
 
 import com.atlassian.crowd.embedded.api.PasswordCredential;
 import com.atlassian.crowd.exception.ApplicationAccessDeniedException;
@@ -56,7 +57,8 @@ public abstract class CrowdSecurity extends Controller {
                 cleanupSession();
                 login();
             } catch (ApplicationPermissionException e) {
-                flash.error("Oops. Authentication failed (%s)", e.getLocalizedMessage());
+                // this exception raise html markup
+                flash.error("<h1>Authentication has failed</h1>\n%s", HtmlUtils.extractHtmlMessageFromCrowdHtmlException(e));
                 Logger.warn(e, "An authentication failed");
                 flash.keep("url");
                 cleanupSession();
@@ -143,7 +145,8 @@ public abstract class CrowdSecurity extends Controller {
             cleanupSession();
             login();
         } catch (ApplicationPermissionException e) {
-            flash.error("Oops. Authentication has failed (%s)", e.getLocalizedMessage());
+            // this exception raise html markup
+            flash.error("<h1>Authentication has failed</h1>\n%s", HtmlUtils.extractHtmlMessageFromCrowdHtmlException(e));
             Logger.warn(e, "An authentication with an inavctive account was attempted (user = %s).", login);
             cleanupSession();
             login();
