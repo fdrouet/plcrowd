@@ -46,7 +46,7 @@ public class CrowdSecurity extends Controller {
      * 
      * @return a CrowdClient already initialized
      */
-    protected static CrowdClient getCrowdClient() {
+    public static CrowdClient getCrowdClient() {
         synchronized (lock) {
             if (crowdClient == null) {
                 String crowdPropertiesFile = Play.configuration.getProperty(CONF_CROWD_PROPERTY);
