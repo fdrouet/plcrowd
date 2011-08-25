@@ -4,12 +4,12 @@
 
 == Installation
 
-Add the following lines in your dependencies.yml to add plcrowd module to your project :
+* Add the following lines in your dependencies.yml to add plcrowd module to your project :
 
 bc. require:
     - play 1.2
     - ...
-    - org.tarpoon -> plcrowd 0.5.0
+    - org.tarpoon -> plcrowd 0.7.0
 # My repositories
 repositories:
     - fdrouet:
@@ -18,16 +18,30 @@ repositories:
         contains:
             - org.tarpoon -> *
 
-Add in your application.conf the location of your crowd.properties file :
+* Then update your dependencies to download all the needed libraries :
+
+bc. play dependencies --sync
+
+* Add in your application.conf the location of your crowd.properties file :
 
 bc. ...
 plcrowd.crowd.properties=crowd.properties
 ...
+
+* copy your crowd.properties in the conf directory of your Play application.
 
 == Content
 
 For the complete user guide, use the documentation embedded in your Play application (DEV mode only) : http://localhost:9000/@documentation/modules/plcrowd/home
 
 === Changelog
+==== 0.7.0
+* #3 (+) the CrowdClient is reachable outside a Controller by using the CrowdUtils.getCrowdClient methods (you can now send requests to crowd from a Job)
+*    (+) add some documentation in the module
+==== 0.6.0
+*    (+) expose getCrowdClient to controllers which inherit of CrowdSecurity controller
+*    (+) expose getCurrentUserLogin to controllers which inherit of CrowdSecurity controller
+*    (+) expose getCurrentUserDisplayName controllers which inherit of CrowdSecurity controller
+*    (+) simple #{crowd.printDisplayName /} 
 ==== 0.5.0
-* (+) authenticate against a crowd server
+*    (+) authenticate against a crowd server

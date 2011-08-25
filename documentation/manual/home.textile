@@ -1,0 +1,17 @@
+h1. Play Crowd Module
+
+{toc}
+
+This module give you teh ability to use an Atlassian Crowd Server to manage the security of your Play! application.
+
+h2. Configuration
+
+The only thing you have to do is to add your crowd.properties file with your good settings.
+
+* edit your application.conf to add the following line :
+
+bc. ...
+plcrowd.crowd.properties=crowd.properties
+...
+
+* copy your crowd.properties file in the conf directory of your Play application.
