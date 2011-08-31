@@ -15,3 +15,14 @@ plcrowd.crowd.properties=crowd.properties
 ...
 
 * copy your crowd.properties file in the conf directory of your Play application.
+
+h2. Available macros
+
+h3. crowd.authenticated
+
+h3. crowd.anonymous
+
+h3. crowd.printDisplayName
+
+h3. user.memberOf
+

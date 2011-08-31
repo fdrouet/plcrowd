@@ -35,6 +35,10 @@ plcrowd.crowd.properties=crowd.properties
 For the complete user guide, use the documentation embedded in your Play application (DEV mode only) : http://localhost:9000/@documentation/modules/plcrowd/home
 
 === Changelog
+==== 0.8.0
+*    (+) CrowdSecurity.getUserGroups() to get all the groups of the current logged-in user (the groups are cached for 30 minutes)
+*    (+) new macro #{user.memberOf group:'my-group'} what i want #{/user.memberOf} to execute things only the user is member of the specified group
+*        improvement of the macros #{crowd.anonymous} and #{crowd.authenticated}
 ==== 0.7.0
 * #3 (+) the CrowdClient is reachable outside a Controller by using the CrowdUtils.getCrowdClient methods (you can now send requests to crowd from a Job)
 *    (+) add some documentation in the module
