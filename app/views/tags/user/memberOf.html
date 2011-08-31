@@ -1,0 +1,12 @@
+*{ 
+	Check if the current user is member of the specified group
+	* group (mandatory) the groupe name to check
+}*
+*{
+    if (_group == null || _group.trim().isEmpty()) {
+        throw new play.exceptions.TagInternalException("the group attribute must be defined");
+    }
+}*
+#{if controllers.CrowdSecurity.getUserGroups().contains(_group)}
+#{doBody /}
+#{/if}
